@@ -22,6 +22,7 @@
     
     for (id dict in self.photos)
     {
+     
         NSString *tag = [self removeUnwantedTags:dict[FLICKR_TAGS]];
         if(![uniqueTags containsObject:tag])
             [uniqueTags addObject:tag];

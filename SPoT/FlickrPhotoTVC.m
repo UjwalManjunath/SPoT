@@ -33,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
     //self.tags = [self getUniqueTags];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -67,10 +68,21 @@
   return [self.Photos count];
 }
 
+-(NSString *)cellIdentifier
+{
+    //abstract
+    return @"";
+}
+-(NSString *)segueIdentifier
+{
+    //abstract
+    return @"";
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Images";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+   // static NSString *CellIdentifier = [self cellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self cellIdentifier] forIndexPath:indexPath];
        
     cell.textLabel.text=[self titleForRow:indexPath.row];
     cell.detailTextLabel.text=[self subTitleForRow:indexPath.row];
@@ -84,7 +96,7 @@
     if([sender isKindOfClass:[UITableViewCell class]])
     {
         NSIndexPath *indexpath = [self.tableView indexPathForCell:sender];
-        if([segue.identifier isEqualToString:@"showImage"])
+        if([segue.identifier isEqualToString:[self segueIdentifier]])
         {
             if([segue.destinationViewController respondsToSelector:@selector(setImageURL:)])
             {
@@ -142,13 +154,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    
+    NSMutableArray *mutableRecentPhotosFromUserDefaults = [[NSUserDefaults standardUserDefaults] mutableArrayValueForKey:@"Recently viewed"] ;
+    
+    if(!mutableRecentPhotosFromUserDefaults)
+        mutableRecentPhotosFromUserDefaults = [[NSMutableArray alloc]init];
+    [mutableRecentPhotosFromUserDefaults removeAllObjects];
+   // if([mutableRecentPhotosFromUserDefaults containsObject:self.Photos[indexPath.row]])
+    {
+   //     [mutableRecentPhotosFromUserDefaults removeObjectAtIndex:[mutableRecentPhotosFromUserDefaults indexOfObject:self.Photos[indexPath.row]] ];
+    }
+    [mutableRecentPhotosFromUserDefaults addObject:self.Photos[indexPath.row]];
+    [[NSUserDefaults standardUserDefaults]setValue:mutableRecentPhotosFromUserDefaults forKey:@"Recently viewed"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self.tableView reloadData];
 }
+
+
 
 @end

@@ -29,6 +29,15 @@
 	// Do any additional setup after loading the view.
 }
 
+-(NSString *)cellIdentifier
+{
+    return @"Images";
+}
+-(NSString *)segueIdentifier
+{
+    return @"showImage";
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

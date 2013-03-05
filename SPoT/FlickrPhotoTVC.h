@@ -12,4 +12,7 @@
 
 @property(nonatomic,strong) NSArray *Photos; // of dictionary;
 
+-(NSString *)cellIdentifier; // abstract
+-(NSString *)segueIdentifier; //abstract
+
 @end

@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   // [self.tableView reloadData];
+    self.Photos =[[[NSUserDefaults standardUserDefaults]mutableArrayValueForKey:@"Recently viewed"]copy];
 	// Do any additional setup after loading the view.
 }
 
@@ -33,6 +35,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(NSString *)cellIdentifier
+{
+    return @"RecentImages";
+}
+
+-(NSString *)segueIdentifier
+{
+    return @"showRecentImage";
 }
 
 @end

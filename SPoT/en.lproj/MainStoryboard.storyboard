@@ -16,7 +16,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="9xJ-ah-nMD" kind="relationship" relationship="viewControllers" id="SBH-Ne-csL"/>
-                        <segue destination="3oH-cq-Hbb" kind="relationship" relationship="viewControllers" id="gQZ-Tc-hEG"/>
+                        <segue destination="fTb-PA-7Xu" kind="relationship" relationship="viewControllers" id="gQZ-Tc-hEG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjg-GC-X59" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -68,20 +68,20 @@
             </objects>
             <point key="canvasLocation" x="274" y="-109"/>
         </scene>
-        <!--Table View Controller - Recent Viewed-->
+        <!--Recent Flickr PhotoTVC-->
         <scene sceneID="3mZ-vG-i3U">
             <objects>
-                <tableViewController id="3oH-cq-Hbb" sceneMemberID="viewController">
+                <tableViewController id="3oH-cq-Hbb" customClass="RecentFlickrPhotoTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uXR-ff-LI4">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="oYu-YZ-cEo" detailTextLabel="S62-dn-J2B" style="IBUITableViewCellStyleSubtitle" id="TnJ-24-JIy">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecentImages" textLabel="oYu-YZ-cEo" detailTextLabel="S62-dn-J2B" style="IBUITableViewCellStyleSubtitle" id="TnJ-24-JIy">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYu-YZ-cEo">
@@ -97,6 +97,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="Sg2-Fa-H2f" kind="push" identifier="showRecentImage" id="eH9-Y4-3OX"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -104,16 +107,16 @@
                             <outlet property="delegate" destination="3oH-cq-Hbb" id="ima-Ut-HBG"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Recent Viewed" id="Ngg-Qw-mQM"/>
+                    <navigationItem key="navigationItem" id="OAg-hO-bbD"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kOZ-df-hfb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-259" y="455"/>
+            <point key="canvasLocation" x="267" y="455"/>
         </scene>
-        <!--Flickr PhotoTVC-->
+        <!--Standard Flickr PhotoTVC-->
         <scene sceneID="YeV-eI-b3b">
             <objects>
-                <tableViewController id="tpL-fN-cmC" customClass="FlickrPhotoTVC" sceneMemberID="viewController">
+                <tableViewController id="tpL-fN-cmC" customClass="StandardFlickrPhotoTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cdp-D6-vQR">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QLU-2j-sn3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1208" y="-168"/>
+            <point key="canvasLocation" x="1668" y="278"/>
         </scene>
         <!--Navigation Controller - Flickr Tags-->
         <scene sceneID="0yM-5H-Vwp">
@@ -201,6 +204,25 @@
             </objects>
             <point key="canvasLocation" x="-252" y="-109"/>
         </scene>
+        <!--Navigation Controller - Recent Viewed-->
+        <scene sceneID="Yxr-oJ-H1j">
+            <objects>
+                <navigationController id="fTb-PA-7Xu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recent Viewed" id="Ngg-Qw-mQM"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="grm-HE-eq2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3oH-cq-Hbb" kind="relationship" relationship="rootViewController" id="H0k-fj-OKf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="shJ-5w-IPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-259" y="455"/>
+        </scene>
     </scenes>
     <classes>
         <class className="FlickrPhotoTVC" superclassName="UITableViewController">
@@ -218,6 +240,12 @@
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
+        <class className="RecentFlickrPhotoTVC" superclassName="FlickrPhotoTVC">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentFlickrPhotoTVC.h"/>
+        </class>
+        <class className="StandardFlickrPhotoTVC" superclassName="FlickrPhotoTVC">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StandardFlickrPhotoTVC.h"/>
+        </class>
         <class className="StanfordFlickrTagTVC" superclassName="FlickrTabTVC">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StanfordFlickrTagTVC.h"/>
         </class>
@@ -227,4 +255,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="eH9-Y4-3OX"/>
+    </inferredMetricsTieBreakers>
 </document>
