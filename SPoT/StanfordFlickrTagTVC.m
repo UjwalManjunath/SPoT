@@ -46,7 +46,7 @@
 {
     [super viewDidLoad];
     self.photos = [FlickrFetcher  stanfordPhotos];
-    self.tags = [self getUniqueTags];
+    self.tags = [[self getUniqueTags] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 	// Do any additional setup after loading the view.
 }
 
@@ -74,7 +74,7 @@
                         [arr addObject:dict];
                     }
                 }
-                [segue.destinationViewController performSelector:@selector(setPhotos:) withObject:[arr copy]];
+                [segue.destinationViewController performSelector:@selector(sortList:) withObject:[arr copy]];
                 
                 
                 

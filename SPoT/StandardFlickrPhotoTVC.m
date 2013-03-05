@@ -38,6 +38,15 @@
     return @"showImage";
 }
 
+-(void) sortList:(NSArray *)photos
+{
+    NSSortDescriptor *photoNameDescriptor = [[NSSortDescriptor alloc]initWithKey:@"title" ascending:YES];
+    NSArray *arrayOfNameDescriptor = @[photoNameDescriptor];
+    NSArray *sortedPhotos = [photos sortedArrayUsingDescriptors:arrayOfNameDescriptor];
+    
+    self.Photos = sortedPhotos;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

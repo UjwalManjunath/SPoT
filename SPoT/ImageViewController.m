@@ -53,12 +53,32 @@
     return self.imageView;
 }
 
+
+-(void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale
+{
+   
+    CGRect frameRect = self.imageView.frame;
+  
+    if((frameRect.size.height <self.view.frame.size.height) || (frameRect.size.width<self.view.frame.size.width))
+    {
+        CGFloat widthRatio = self.scrollView.bounds.size.width/ self.imageView.bounds.size.width;
+        CGFloat heighRatio = self.scrollView.bounds.size.height/self.imageView.bounds.size.height;
+        self.scrollView.zoomScale = (widthRatio>heighRatio)? widthRatio:heighRatio;
+    //     [self.scrollView zoomToRect:phonewidth animated:YES];
+    }
+        
+   
+}
+
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.scrollView addSubview:self.imageView];
     self.scrollView.maximumZoomScale = 5.0;
-    self.scrollView.minimumZoomScale=0.5;
+    self.scrollView.minimumZoomScale=0.2;
     self.scrollView.delegate=self;
 	[self loadImage];
 }
