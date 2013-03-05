@@ -38,17 +38,28 @@
         
         NSData *imageData = [[NSData alloc]initWithContentsOfURL:self.imageURL];
         UIImage *image = [[UIImage alloc]initWithData:imageData];
-        self.scrollView.contentSize = image.size;
-        self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-        self.imageView.image = image;
+        if(image)
+        {
+            self.scrollView.zoomScale=1.0;
+            self.scrollView.contentSize = image.size;
+            self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+            self.imageView.image = image;
+        }
     }
     
+}
+-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.imageView;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.scrollView addSubview:self.imageView];
+    self.scrollView.maximumZoomScale = 5.0;
+    self.scrollView.minimumZoomScale=0.5;
+    self.scrollView.delegate=self;
 	[self loadImage];
 }
 

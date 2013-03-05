@@ -30,10 +30,23 @@
     NSMutableArray *images =[[NSUserDefaults standardUserDefaults]mutableArrayValueForKey:@"Recentlyviewed"];
     if(images)
     {
-        self.Photos = [images copy];
+       
+        self.Photos =  [self reversedArray:[images copy]];
+      
     }
   
 	// Do any additional setup after loading the view.
+}
+
+-(NSArray *)reversedArray:(NSArray *)images
+{
+    NSMutableArray *reversedArray = [[NSMutableArray alloc]initWithCapacity:[images count]];
+    NSEnumerator *enumerator = [images reverseObjectEnumerator];
+    for(id element in enumerator)
+    {
+        [reversedArray addObject:element];
+    }
+    return [reversedArray copy];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -42,7 +55,7 @@
     NSMutableArray *images =[[NSUserDefaults standardUserDefaults]mutableArrayValueForKey:@"Recentlyviewed"];
     if(images)
     {
-        self.Photos = [images copy];
+        self.Photos = [self reversedArray:[images copy]];
     }
       [self.tableView reloadData];
 }

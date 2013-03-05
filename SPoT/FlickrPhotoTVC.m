@@ -34,6 +34,7 @@
 {
     [super viewDidLoad];
    
+   
     //self.tags = [self getUniqueTags];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -42,6 +43,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -86,8 +89,7 @@
        
     cell.textLabel.text=[self titleForRow:indexPath.row];
     cell.detailTextLabel.text=[self subTitleForRow:indexPath.row];
-    
-    
+        
     return cell;
 }
 
@@ -159,8 +161,8 @@
     
     if(!mutableRecentPhotosFromUserDefaults)
         mutableRecentPhotosFromUserDefaults = [[NSMutableArray alloc]init];
- 
-    if([mutableRecentPhotosFromUserDefaults containsObject:self.Photos[indexPath.row]])
+  //  [mutableRecentPhotosFromUserDefaults removeAllObjects];
+   if([mutableRecentPhotosFromUserDefaults containsObject:self.Photos[indexPath.row]])
     {
        [mutableRecentPhotosFromUserDefaults removeObjectAtIndex:[mutableRecentPhotosFromUserDefaults indexOfObject:self.Photos[indexPath.row]] ];
     }

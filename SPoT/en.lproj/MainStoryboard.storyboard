@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="-809" y="-221"/>
         </scene>
-        <!--Stanford Flickr TagTVC-->
+        <!--Stanford Flickr TagTVC - Featured-->
         <scene sceneID="9SP-Wt-bLN">
             <objects>
                 <tableViewController id="Rmi-Sk-HHp" customClass="StanfordFlickrTagTVC" sceneMemberID="viewController">
@@ -62,13 +62,13 @@
                             <outlet property="delegate" destination="Rmi-Sk-HHp" id="ndh-UC-NDa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="CyD-V9-eBH"/>
+                    <navigationItem key="navigationItem" title="Featured" id="CyD-V9-eBH"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obi-6g-EWM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="274" y="-109"/>
         </scene>
-        <!--Recent Flickr PhotoTVC-->
+        <!--Recent Flickr PhotoTVC - Recent-->
         <scene sceneID="3mZ-vG-i3U">
             <objects>
                 <tableViewController id="3oH-cq-Hbb" customClass="RecentFlickrPhotoTVC" sceneMemberID="viewController">
@@ -107,7 +107,7 @@
                             <outlet property="delegate" destination="3oH-cq-Hbb" id="ima-Ut-HBG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="OAg-hO-bbD"/>
+                    <navigationItem key="navigationItem" title="Recent" id="OAg-hO-bbD"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kOZ-df-hfb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,11 +185,11 @@
             </objects>
             <point key="canvasLocation" x="1668" y="278"/>
         </scene>
-        <!--Navigation Controller - Flickr Tags-->
+        <!--Navigation Controller - Featured-->
         <scene sceneID="0yM-5H-Vwp">
             <objects>
                 <navigationController id="9xJ-ah-nMD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Flickr Tags" id="eAi-C1-tIo"/>
+                    <tabBarItem key="tabBarItem" title="Featured" id="eAi-C1-tIo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="L5b-rw-eQf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -204,11 +204,11 @@
             </objects>
             <point key="canvasLocation" x="-252" y="-109"/>
         </scene>
-        <!--Navigation Controller - Recent Viewed-->
+        <!--Navigation Controller - Recent-->
         <scene sceneID="Yxr-oJ-H1j">
             <objects>
                 <navigationController id="fTb-PA-7Xu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recent Viewed" id="Ngg-Qw-mQM"/>
+                    <tabBarItem key="tabBarItem" title="Recent" id="Ngg-Qw-mQM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="grm-HE-eq2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -224,32 +224,6 @@
             <point key="canvasLocation" x="-259" y="455"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="FlickrPhotoTVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPhotoTVC.h"/>
-        </class>
-        <class className="FlickrTabTVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrTabTVC.h"/>
-        </class>
-        <class className="ImageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RecentFlickrPhotoTVC" superclassName="FlickrPhotoTVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentFlickrPhotoTVC.h"/>
-        </class>
-        <class className="StandardFlickrPhotoTVC" superclassName="FlickrPhotoTVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StandardFlickrPhotoTVC.h"/>
-        </class>
-        <class className="StanfordFlickrTagTVC" superclassName="FlickrTabTVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StanfordFlickrTagTVC.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
