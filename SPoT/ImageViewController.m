@@ -48,6 +48,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.scrollView addSubview:self.imageView];
 	[self loadImage];
 }
 

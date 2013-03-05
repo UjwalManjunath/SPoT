@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D42FFAE16E4902200CA83BA /* FlickrPhotoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D42FFAD16E4902200CA83BA /* FlickrPhotoTVC.m */; };
+		2D42FFB116E4945D00CA83BA /* StanfordFlickrTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D42FFB016E4945D00CA83BA /* StanfordFlickrTVC.m */; };
 		2D99FAD916E32CC000B36EA0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D99FAD816E32CC000B36EA0 /* UIKit.framework */; };
 		2D99FADB16E32CC000B36EA0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D99FADA16E32CC000B36EA0 /* Foundation.framework */; };
 		2D99FADD16E32CC000B36EA0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D99FADC16E32CC000B36EA0 /* CoreGraphics.framework */; };
@@ -19,9 +21,15 @@
 		2D99FAF216E32CC000B36EA0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D99FAF016E32CC000B36EA0 /* MainStoryboard.storyboard */; };
 		2D99FAFF16E32D6E00B36EA0 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D99FAFE16E32D6E00B36EA0 /* FlickrFetcher.m */; };
 		2D99FB0216E32FE300B36EA0 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D99FB0116E32FE300B36EA0 /* ImageViewController.m */; };
+		2D9EB29616E568E6005986CA /* FlickrTabTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EB29516E568E6005986CA /* FlickrTabTVC.m */; };
+		2D9EB29916E569D2005986CA /* StanfordFlickrTagTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EB29816E569D2005986CA /* StanfordFlickrTagTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D42FFAC16E4902200CA83BA /* FlickrPhotoTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoTVC.h; sourceTree = "<group>"; };
+		2D42FFAD16E4902200CA83BA /* FlickrPhotoTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoTVC.m; sourceTree = "<group>"; };
+		2D42FFAF16E4945D00CA83BA /* StanfordFlickrTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StanfordFlickrTVC.h; sourceTree = "<group>"; };
+		2D42FFB016E4945D00CA83BA /* StanfordFlickrTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StanfordFlickrTVC.m; sourceTree = "<group>"; };
 		2D99FAD516E32CC000B36EA0 /* SPoT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPoT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D99FAD816E32CC000B36EA0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D99FADA16E32CC000B36EA0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -41,6 +49,10 @@
 		2D99FAFE16E32D6E00B36EA0 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 		2D99FB0016E32FE300B36EA0 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		2D99FB0116E32FE300B36EA0 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		2D9EB29416E568E6005986CA /* FlickrTabTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrTabTVC.h; sourceTree = "<group>"; };
+		2D9EB29516E568E6005986CA /* FlickrTabTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrTabTVC.m; sourceTree = "<group>"; };
+		2D9EB29716E569D2005986CA /* StanfordFlickrTagTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StanfordFlickrTagTVC.h; sourceTree = "<group>"; };
+		2D9EB29816E569D2005986CA /* StanfordFlickrTagTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StanfordFlickrTagTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +101,14 @@
 			children = (
 				2D99FAFB16E32D6E00B36EA0 /* FlickrFetcher */,
 				2D99FAF016E32CC000B36EA0 /* MainStoryboard.storyboard */,
+				2D9EB29416E568E6005986CA /* FlickrTabTVC.h */,
+				2D9EB29516E568E6005986CA /* FlickrTabTVC.m */,
+				2D42FFAC16E4902200CA83BA /* FlickrPhotoTVC.h */,
+				2D42FFAD16E4902200CA83BA /* FlickrPhotoTVC.m */,
+				2D9EB29716E569D2005986CA /* StanfordFlickrTagTVC.h */,
+				2D9EB29816E569D2005986CA /* StanfordFlickrTagTVC.m */,
+				2D42FFAF16E4945D00CA83BA /* StanfordFlickrTVC.h */,
+				2D42FFB016E4945D00CA83BA /* StanfordFlickrTVC.m */,
 				2D99FB0016E32FE300B36EA0 /* ImageViewController.h */,
 				2D99FB0116E32FE300B36EA0 /* ImageViewController.m */,
 				2D99FADF16E32CC000B36EA0 /* Supporting Files */,
@@ -192,6 +212,10 @@
 				2D99FAE916E32CC000B36EA0 /* AppDelegate.m in Sources */,
 				2D99FAFF16E32D6E00B36EA0 /* FlickrFetcher.m in Sources */,
 				2D99FB0216E32FE300B36EA0 /* ImageViewController.m in Sources */,
+				2D42FFAE16E4902200CA83BA /* FlickrPhotoTVC.m in Sources */,
+				2D42FFB116E4945D00CA83BA /* StanfordFlickrTVC.m in Sources */,
+				2D9EB29616E568E6005986CA /* FlickrTabTVC.m in Sources */,
+				2D9EB29916E569D2005986CA /* StanfordFlickrTagTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +338,7 @@
 				2D99FAFA16E32CC000B36EA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
