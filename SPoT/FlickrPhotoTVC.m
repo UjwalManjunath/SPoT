@@ -79,6 +79,24 @@
     return cell;
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([sender isKindOfClass:[UITableViewCell class]])
+    {
+        NSIndexPath *indexpath = [self.tableView indexPathForCell:sender];
+        if([segue.identifier isEqualToString:@"showImage"])
+        {
+            if([segue.destinationViewController respondsToSelector:@selector(setImageURL:)])
+            {
+                NSURL *url = [FlickrFetcher urlForPhoto:self.Photos[indexpath.row] format:FlickrPhotoFormatLarge] ;
+                [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:url];
+                [segue.destinationViewController setTitle:[self titleForRow:indexpath.row]];
+            }
+         
+        }
+    }
+}
+
 
 
 /*
