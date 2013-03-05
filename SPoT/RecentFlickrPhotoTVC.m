@@ -26,9 +26,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   // [self.tableView reloadData];
-    self.Photos =[[[NSUserDefaults standardUserDefaults]mutableArrayValueForKey:@"Recently viewed"]copy];
+    
+    NSMutableArray *images =[[NSUserDefaults standardUserDefaults]mutableArrayValueForKey:@"Recentlyviewed"];
+    if(images)
+    {
+        self.Photos = [images copy];
+    }
+  
 	// Do any additional setup after loading the view.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+   
+    NSMutableArray *images =[[NSUserDefaults standardUserDefaults]mutableArrayValueForKey:@"Recentlyviewed"];
+    if(images)
+    {
+        self.Photos = [images copy];
+    }
+      [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning

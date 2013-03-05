@@ -155,19 +155,22 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSMutableArray *mutableRecentPhotosFromUserDefaults = [[NSUserDefaults standardUserDefaults] mutableArrayValueForKey:@"Recently viewed"] ;
+    NSMutableArray *mutableRecentPhotosFromUserDefaults = [[NSUserDefaults standardUserDefaults] mutableArrayValueForKey:@"Recentlyviewed"] ;
     
     if(!mutableRecentPhotosFromUserDefaults)
         mutableRecentPhotosFromUserDefaults = [[NSMutableArray alloc]init];
-    [mutableRecentPhotosFromUserDefaults removeAllObjects];
-   // if([mutableRecentPhotosFromUserDefaults containsObject:self.Photos[indexPath.row]])
+ 
+    if([mutableRecentPhotosFromUserDefaults containsObject:self.Photos[indexPath.row]])
     {
-   //     [mutableRecentPhotosFromUserDefaults removeObjectAtIndex:[mutableRecentPhotosFromUserDefaults indexOfObject:self.Photos[indexPath.row]] ];
+       [mutableRecentPhotosFromUserDefaults removeObjectAtIndex:[mutableRecentPhotosFromUserDefaults indexOfObject:self.Photos[indexPath.row]] ];
     }
-    [mutableRecentPhotosFromUserDefaults addObject:self.Photos[indexPath.row]];
-    [[NSUserDefaults standardUserDefaults]setValue:mutableRecentPhotosFromUserDefaults forKey:@"Recently viewed"];
+    if([mutableRecentPhotosFromUserDefaults count]>5)
+        [mutableRecentPhotosFromUserDefaults removeObjectAtIndex:0];
+   [mutableRecentPhotosFromUserDefaults addObject:self.Photos[indexPath.row]];
+    [[NSUserDefaults standardUserDefaults]setValue:mutableRecentPhotosFromUserDefaults forKey:@"Recentlyviewed"];
+    //self.Photos = [mutableRecentPhotosFromUserDefaults copy];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [self.tableView reloadData];
+  
 }
 
 
