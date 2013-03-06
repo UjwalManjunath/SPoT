@@ -7,7 +7,7 @@
 //
 
 #import "StandardFlickrPhotoTVC.h"
-
+#import "FlickrFetcher.h"
 @interface StandardFlickrPhotoTVC ()
 
 @end
@@ -52,5 +52,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end
