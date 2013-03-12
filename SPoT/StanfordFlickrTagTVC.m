@@ -45,10 +45,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.photos = [FlickrFetcher  stanfordPhotos];
-    self.tags = [[self getUniqueTags] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-	// Do any additional setup after loading the view.
+    [self loadLatestStandfordPhotos];
+    [self.refreshControl addTarget:self action:@selector(loadLatestStandfordPhotos) forControlEvents:UIControlEventValueChanged];
+   	// Do any additional setup after loading the view.
 }
+
+-(void)loadLatestStandfordPhotos
+{
+    [self.refreshControl beginRefreshing ];
+       dispatch_queue_t tagLoaderQ= dispatch_queue_create("flicker tag loader", NULL);
+    dispatch_async(tagLoaderQ, ^{
+        [UIApplication sharedApplication].networkActivityIndicatorVisible =YES;
+    self.photos = [FlickrFetcher  stanfordPhotos];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible =NO;
+        dispatch_async(dispatch_get_main_queue(), ^{
+   
+            self.tags = [[self getUniqueTags] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+            [self.refreshControl endRefreshing];
+            
+
+        
+        });
+   });
+    
+    }
 
 - (void)didReceiveMemoryWarning
 {

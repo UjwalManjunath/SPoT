@@ -15,6 +15,11 @@
 
 @implementation FlickrTabTVC
 
+-(void)setTags:(NSArray *)tags
+{
+    _tags   = tags;
+    [self.tableView reloadData];
+}
 -(NSUInteger)getPhotosCount:(NSString *)tag
 {
     NSUInteger noOfPics =0;
