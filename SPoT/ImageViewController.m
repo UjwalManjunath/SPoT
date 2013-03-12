@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property(nonatomic,strong) UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
 
@@ -35,17 +36,29 @@
     {
         self.scrollView.contentSize = CGSizeZero;
         self.imageView.image=nil;
+        [self.spinner startAnimating];
+        dispatch_queue_t imageLoaderQ = dispatch_queue_create("image Loader", NULL);
+        dispatch_async(imageLoaderQ, ^{
+            [UIApplication sharedApplication].networkActivityIndicatorVisible   = YES; //bad
+            NSData *imageData = [[NSData alloc]initWithContentsOfURL:self.imageURL];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO; //bad
+            UIImage *image = [[UIImage alloc]initWithData:imageData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if(image)
+                {
+                    self.scrollView.zoomScale=1.0;
+                    self.scrollView.contentSize = image.size;
+                    self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+                    self.imageView.image = image;
+                }
+                [self.spinner stopAnimating];
+                
+            });
+
+        });
+               
         
-        NSData *imageData = [[NSData alloc]initWithContentsOfURL:self.imageURL];
-        UIImage *image = [[UIImage alloc]initWithData:imageData];
-        if(image)
-        {
-            self.scrollView.zoomScale=1.0;
-            self.scrollView.contentSize = image.size;
-            self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-            self.imageView.image = image;
-        }
-    }
+           }
     
 }
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
