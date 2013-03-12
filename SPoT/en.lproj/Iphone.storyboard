@@ -21,7 +21,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjg-GC-X59" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-809" y="-221"/>
+            <point key="canvasLocation" x="-793" y="-213"/>
         </scene>
         <!--Stanford Flickr TagTVC - Featured-->
         <scene sceneID="9SP-Wt-bLN">
@@ -69,7 +69,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obi-6g-EWM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="274" y="-109"/>
+            <point key="canvasLocation" x="290" y="-101"/>
         </scene>
         <!--Recent Flickr PhotoTVC - Recent-->
         <scene sceneID="3mZ-vG-i3U">
@@ -114,7 +114,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kOZ-df-hfb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="267" y="455"/>
+            <point key="canvasLocation" x="283" y="463"/>
         </scene>
         <!--Standard Flickr PhotoTVC-->
         <scene sceneID="YeV-eI-b3b">
@@ -159,7 +159,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dkh-yJ-ePO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="-233"/>
+            <point key="canvasLocation" x="691" y="-225"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="q3Y-c6-8zf">
@@ -209,7 +209,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mc3-7t-LzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-252" y="-109"/>
+            <point key="canvasLocation" x="-236" y="-101"/>
         </scene>
         <!--Navigation Controller - Recent-->
         <scene sceneID="Yxr-oJ-H1j">
@@ -228,7 +228,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="shJ-5w-IPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-259" y="455"/>
+            <point key="canvasLocation" x="-243" y="463"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -237,6 +237,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="o1y-Ve-5Sn"/>
+        <segue reference="eH9-Y4-3OX"/>
     </inferredMetricsTieBreakers>
 </document>

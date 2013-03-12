@@ -36,7 +36,7 @@
 {
     if( [segue.identifier isEqualToString:@"showPopOver"])
     {
-        if([segue.destinationViewController isKindOfClass:[UISplitViewController class]])
+        if([segue.destinationViewController isKindOfClass:[UINavigationController class]])
         {
             if([segue isKindOfClass:[UIStoryboardPopoverSegue class]])
             {
