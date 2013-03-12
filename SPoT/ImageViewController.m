@@ -7,16 +7,52 @@
 //
 
 #import "ImageViewController.h"
+#import "StanfordFlickrTagTVC.h"
 
 @interface ImageViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property(nonatomic,strong) UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *tabBarTitleButton;
+@property(strong,nonatomic) UIPopoverController *popOver;
 
 @end
 
 @implementation ImageViewController
+
+-(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if([identifier isEqualToString:@"showPopOver"])
+    {
+        BOOL reu =self.popOver.popoverVisible? NO:YES;
+        return reu;
+    }
+    else
+        return [super shouldPerformSegueWithIdentifier:identifier sender:sender];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if( [segue.identifier isEqualToString:@"showPopOver"])
+    {
+        if([segue.destinationViewController isKindOfClass:[UISplitViewController class]])
+        {
+            if([segue isKindOfClass:[UIStoryboardPopoverSegue class]])
+            {
+                self.popOver = ((UIStoryboardPopoverSegue *)segue).popoverController;
+
+                
+            }
+        }
+    }
+}
+
+-(void)setTitle:(NSString *)title
+{
+    super.title = title;
+    self.tabBarTitleButton.title = title;
+}
 
 -(UIImageView *)imageView
 {
@@ -94,6 +130,7 @@
     self.scrollView.minimumZoomScale=0.2;
     self.scrollView.delegate=self;
 	[self loadImage];
+     self.tabBarTitleButton.title = self.title;
 }
 
 
