@@ -102,7 +102,17 @@
         {
             if([segue.destinationViewController respondsToSelector:@selector(setImageURL:)])
             {
-                NSURL *url = [FlickrFetcher urlForPhoto:self.Photos[indexpath.row] format:FlickrPhotoFormatLarge] ;
+                NSURL *url;
+               
+                
+                if([[UIDevice currentDevice].model isEqualToString:@"iPhone Simulator"])
+                {
+                    url = [FlickrFetcher urlForPhoto:self.Photos[indexpath.row] format:FlickrPhotoFormatLarge] ;
+                }
+                else if([[UIDevice currentDevice].model isEqualToString:@"iPad Simulator"])
+                {
+                     url = [FlickrFetcher urlForPhoto:self.Photos[indexpath.row] format:FlickrPhotoFormatOriginal] ;
+                }
                 [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:url];
                 [segue.destinationViewController setTitle:[self titleForRow:indexpath.row]];
             }
