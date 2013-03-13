@@ -9,11 +9,25 @@
 #import "FlickrTabTVC.h"
 #import "FlickrFetcher.h"
 
-@interface FlickrTabTVC ()
+@interface FlickrTabTVC ()<UISplitViewControllerDelegate>
 
 @end
 
 @implementation FlickrTabTVC
+
+-(void)awakeFromNib
+{
+    self.splitViewController.delegate = self;
+}
+
+
+-(BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation
+{
+    return UIInterfaceOrientationIsPortrait(orientation);
+}
+
+
+
 
 -(void)setTags:(NSArray *)tags
 {

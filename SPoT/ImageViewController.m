@@ -16,10 +16,26 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tabBarTitleButton;
 @property(strong,nonatomic) UIPopoverController *popOver;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+
+@property(strong,nonatomic) IBOutlet UIBarButtonItem *splitViewBarButtonItem;
 
 @end
 
 @implementation ImageViewController
+
+
+-(void)setSplitViewBarButtonItem:(UIBarButtonItem *)splitViewBarButtonItem
+{
+    NSMutableArray *toolbarbuttons = [self.toolbar.items mutableCopy];
+    if(_splitViewBarButtonItem)
+        [toolbarbuttons removeObject:_splitViewBarButtonItem];
+    if(splitViewBarButtonItem)
+        [toolbarbuttons insertObject:splitViewBarButtonItem atIndex:0];
+    
+    self.toolbar.items = toolbarbuttons;
+    _splitViewBarButtonItem = splitViewBarButtonItem;
+}
 
 -(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
@@ -131,6 +147,7 @@
     self.scrollView.delegate=self;
 	[self loadImage];
      self.tabBarTitleButton.title = self.title;
+    [self setSplitViewBarButtonItem:self.splitViewBarButtonItem]; 
 }
 
 

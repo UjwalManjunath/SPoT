@@ -8,13 +8,77 @@
 
 #import "FlickrPhotoTVC.h"
 #import "FlickrFetcher.h"
+//#import "ImageViewController.h"
 
 
-@interface FlickrPhotoTVC ()
-
+@interface FlickrPhotoTVC () <UISplitViewControllerDelegate>
 @end
 
 @implementation FlickrPhotoTVC
+
+
+#pragma UISplitViewController delefate
+
+-(void)awakeFromNib
+{
+    self.splitViewController.delegate   = self;
+}
+
+
+-(BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation
+{
+    return UIInterfaceOrientationIsPortrait(orientation);
+}
+
+-(void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc
+{
+    barButtonItem.title = @"Featured";
+    
+    id detailViewController = [self.splitViewController.viewControllers lastObject];
+    
+    if([detailViewController respondsToSelector:@selector(setSplitViewBarButtonItem:)])
+    {
+        [detailViewController performSelector:@selector(setSplitViewBarButtonItem:) withObject:barButtonItem];
+    }
+    
+    
+}
+
+
+-(void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    
+    id detailViewController = [self.splitViewController.viewControllers lastObject];
+    
+    if([detailViewController respondsToSelector:@selector(setSplitViewBarButtonItem:)])
+    {
+        [detailViewController performSelector:@selector(setSplitViewBarButtonItem:) withObject:Nil];
+    }
+
+}
+
+-(id)splitViewdetailViewWithBarButton
+{
+    id detailVC = [self.splitViewController.viewControllers lastObject];
+    
+    if(![detailVC respondsToSelector:@selector(setSplitViewBarButtonItem:)] ||
+       ![detailVC respondsToSelector:@selector(splitViewBarButtonItem)])
+        detailVC = nil;
+    return detailVC;
+    
+}
+
+
+-(void)transferSplitViewBarButtonItemToViewController:(id)destinationViewController
+{
+
+    UIBarButtonItem *barbutton = [[self splitViewdetailViewWithBarButton] performSelector:@selector(splitViewBarButtonItem)];
+    [[self splitViewdetailViewWithBarButton] performSelector:@selector(setSplitViewBarButtonItem:) withObject:nil];
+    if (barbutton)
+        [destinationViewController performSelector:@selector(setSplitViewBarButtonItem:) withObject:barbutton];
+
+}
+
 
 -(void)setPhotos:(NSArray *)Photos
 {
@@ -102,23 +166,31 @@
         {
             if([segue.destinationViewController respondsToSelector:@selector(setImageURL:)])
             {
-                NSURL *url;
-               
-                
-                if([[UIDevice currentDevice].model isEqualToString:@"iPhone Simulator"])
-                {
-                    url = [FlickrFetcher urlForPhoto:self.Photos[indexpath.row] format:FlickrPhotoFormatLarge] ;
-                }
-                else if([[UIDevice currentDevice].model isEqualToString:@"iPad Simulator"])
-                {
-                     url = [FlickrFetcher urlForPhoto:self.Photos[indexpath.row] format:FlickrPhotoFormatOriginal] ;
-                }
+                [self transferSplitViewBarButtonItemToViewController:segue.destinationViewController];
+                NSURL *url =
+                [self getImageUrlWithFormatBasedOnDeviceusing:indexpath.row];
                 [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:url];
                 [segue.destinationViewController setTitle:[self titleForRow:indexpath.row]];
             }
          
         }
+     
     }
+}
+
+-(NSURL *)getImageUrlWithFormatBasedOnDeviceusing:(NSUInteger)index
+{
+    NSURL *url;
+    if([[UIDevice currentDevice].model isEqualToString:@"iPhone Simulator"])
+    {
+        url = [FlickrFetcher urlForPhoto:self.Photos[index] format:FlickrPhotoFormatLarge] ;
+    }
+    else if([[UIDevice currentDevice].model isEqualToString:@"iPad Simulator"])
+    {
+        url = [FlickrFetcher urlForPhoto:self.Photos[index] format:FlickrPhotoFormatOriginal] ;
+    }
+
+    return url;
 }
 
 
