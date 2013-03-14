@@ -8,6 +8,7 @@
 
 #import "ImageViewController.h"
 #import "StanfordFlickrTagTVC.h"
+#import "FlickrPhotoCache.h" 
 
 @interface ImageViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -17,13 +18,18 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tabBarTitleButton;
 @property(strong,nonatomic) UIPopoverController *popOver;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
-
+@property(strong,nonatomic) FlickrPhotoCache *imageCache;
 @property(strong,nonatomic) IBOutlet UIBarButtonItem *splitViewBarButtonItem;
 
 @end
 
 @implementation ImageViewController
 
+-(FlickrPhotoCache *)imageCache
+{
+    if(!_imageCache) _imageCache = [[ FlickrPhotoCache alloc]init];
+    return _imageCache;
+}
 
 -(void)setSplitViewBarButtonItem:(UIBarButtonItem *)splitViewBarButtonItem
 {
@@ -91,10 +97,10 @@
         [self.spinner startAnimating];
         dispatch_queue_t imageLoaderQ = dispatch_queue_create("image Loader", NULL);
         dispatch_async(imageLoaderQ, ^{
-            [UIApplication sharedApplication].networkActivityIndicatorVisible   = YES; //bad
-            NSData *imageData = [[NSData alloc]initWithContentsOfURL:self.imageURL];
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO; //bad
+           
+            NSData *imageData = [self.imageCache retreiveImageForUrl:self.imageURL];
             UIImage *image = [[UIImage alloc]initWithData:imageData];
+            [self.imageCache storeImagetoCache:imageData forUrl:self.imageURL];
             dispatch_async(dispatch_get_main_queue(), ^{
                 if(image)
                 {

@@ -25,6 +25,7 @@
 		2D9D37A016E5B573004D8433 /* RecentFlickrPhotoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D379F16E5B573004D8433 /* RecentFlickrPhotoTVC.m */; };
 		2D9EB29616E568E6005986CA /* FlickrTabTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EB29516E568E6005986CA /* FlickrTabTVC.m */; };
 		2D9EB29916E569D2005986CA /* StanfordFlickrTagTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9EB29816E569D2005986CA /* StanfordFlickrTagTVC.m */; };
+		2DA052E016F181250026DDAD /* FlickrPhotoCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA052DF16F181250026DDAD /* FlickrPhotoCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,8 @@
 		2D9EB29516E568E6005986CA /* FlickrTabTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrTabTVC.m; sourceTree = "<group>"; };
 		2D9EB29716E569D2005986CA /* StanfordFlickrTagTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StanfordFlickrTagTVC.h; sourceTree = "<group>"; };
 		2D9EB29816E569D2005986CA /* StanfordFlickrTagTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StanfordFlickrTagTVC.m; sourceTree = "<group>"; };
+		2DA052DE16F181250026DDAD /* FlickrPhotoCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoCache.h; sourceTree = "<group>"; };
+		2DA052DF16F181250026DDAD /* FlickrPhotoCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoCache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				2D9EB29816E569D2005986CA /* StanfordFlickrTagTVC.m */,
 				2D99FB0016E32FE300B36EA0 /* ImageViewController.h */,
 				2D99FB0116E32FE300B36EA0 /* ImageViewController.m */,
+				2DA052DE16F181250026DDAD /* FlickrPhotoCache.h */,
+				2DA052DF16F181250026DDAD /* FlickrPhotoCache.m */,
 				2D99FADF16E32CC000B36EA0 /* Supporting Files */,
 			);
 			path = SPoT;
@@ -234,6 +239,7 @@
 				2D9EB29916E569D2005986CA /* StanfordFlickrTagTVC.m in Sources */,
 				2D9D379D16E5B505004D8433 /* StandardFlickrPhotoTVC.m in Sources */,
 				2D9D37A016E5B573004D8433 /* RecentFlickrPhotoTVC.m in Sources */,
+				2DA052E016F181250026DDAD /* FlickrPhotoCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
